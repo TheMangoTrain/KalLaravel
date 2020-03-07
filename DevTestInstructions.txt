@@ -1,0 +1,91 @@
+Laravel install
+-npm and composer updates and install
+-mysql db and connect
+
+Hot reload: not working, to look at
+
+Vue setup
+
+
+------------------
+
+Modeling/DB:
+
+Eloquent make model, migration and controller
+
+Gain access to pull and push data
+
+---------
+
+Reflect data in Vue
+
+
+----------
+
+Build logic for creating orders and generating sheets
+
+
+----------
+
+
+
+Laravel install
+Vue app integrate
+
+Eloquent
+Migrations
+Seeders
+
+Products and Orders
+
+API routes to get DB entries
+
+Output DB to Vue app
+
+Bin-packing library
+Sheets generation
+
+
+
+
+
+Eloquent model and migration
+
+
+
+
+
+
+Your task is to create an algorithm to take incoming orders and populate printing sheets.
+
+More info:
+- Sheets can be considered as a 10 unit by 15 unit grid
+- Products come in sizes [ 1x1, 2x2, 3x3, 4x4, 5x2, 2x5 ]
+- 1x1 -> means 1 grid unit by 1 grid unit
+
+Constraints:
+- Must use Laravel and Eloquent to develop algorithm
+- Write your own migrations and seeders. (SQL Dump example provided but not importable)
+- Orders must have all of their items on the same print sheet
+- Orders can have any number of items with any number of quantity
+- Must be able to track placement of products on the sheets
+
+Generate 50 sheets of test data
+- Bonus: Solutions that present the least amount of wasted space on sheets
+- Bonus: Test coverage of algorithm
+
+Example Data:
+
+- Product 1 - Size 1x1
+- Product 2 - Size 2x2
+- Product 3 - Size 3x3
+- Product 4 - Size 1x1
+- Product 5 - Size 4x4
+- Product 6 - Size 5x2
+- Product 7 - Size 2x5
+
+- Order 1
+	- Product 1 - Quantity 2
+	- Product 3 - Quantity 1
+	- Product 6 - Quantity 1
+	- Product 7 - Quantity 3
