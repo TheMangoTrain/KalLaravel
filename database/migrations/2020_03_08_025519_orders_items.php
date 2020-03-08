@@ -1,0 +1,39 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class OrdersItems extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('orders_items', function (Blueprint $table) {
+            $table->bigIncrements('order_item_id', 11);
+            $table->bigInteger('order_id')->unsigned();
+            $table->foreign('order_id')->references('order_id')->on('orders');
+            $table->bigInteger('product_id')->unsigned()->index();
+            $table->foreign('product_id')->references('product_id')->on('products');
+            $table->integer('quantity')->default('1');
+            $table->bigInteger('refund')->default('0')->index();
+            $table->integer('resend_amount')->default('0');
+            $table->timestamp('created_at')->useCurrent()->nullable(true)->index();
+            $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))->index();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        //
+    }
+}
