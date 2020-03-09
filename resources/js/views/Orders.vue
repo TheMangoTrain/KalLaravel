@@ -1,13 +1,13 @@
 <template>
-  <div class="view_Home view">
-        Home page
+  <div class="view_Orders view">
+        Orders list here
   </div>
 </template>
 
 <script>
 
 export default {
-  name: 'Home',
+  name: 'Orders',
   components: {
 
   }

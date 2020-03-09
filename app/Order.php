@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    // Add order
+    //protected $fillable = ['address', 'city', 'state', 'zip'];
 }

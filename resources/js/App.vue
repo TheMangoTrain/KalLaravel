@@ -3,12 +3,10 @@
     <Main>
       <div id="nav">
         <router-link to="/">Home</router-link>
-        <router-link to="/events">Events</router-link>
-        <router-link to="/stats">Stats</router-link>
-        <router-link to="/map">Map</router-link>
+        <router-link to="/Products">Products</router-link>
+        <router-link to="/Orders">Orders</router-link>
       </div>
       <router-view />
-bv vbvfbvb
     </Main>
     
   </div>

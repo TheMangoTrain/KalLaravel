@@ -1,0 +1,52 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class ProductController extends Controller
+{
+    public function store(Request $request)
+    {
+      $post = new Product([
+        'sku' => $request->get('sku'),
+        'title' => $request->get('title'),
+        'size' => $request->get('size'),
+        'price' => $request->get('price'),
+        'inventory' => $request->get('inventory')
+      ]);
+
+      $post->save();
+
+      return response()->json('successfully added');
+    }
+
+    public function index()
+    {
+      return new ProductCollection(Product::all());
+    }
+
+    public function edit($id)
+    {
+      $post = Product::find($id);
+      return response()->json($post);
+    }
+
+    public function update($id, Request $request)
+    {
+      $post = Product::find($id);
+
+      $post->update($request->all());
+
+      return response()->json('successfully updated');
+    }
+
+    public function delete($id)
+    {
+      $post = Product::find($id);
+
+      $post->delete();
+
+      return response()->json('successfully deleted');
+    }
+}

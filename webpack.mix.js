@@ -31,7 +31,7 @@ mix.webpackConfig({
         }
     },
 
-    output: { publicPath: "http://localhost:8080" },
+    //output: { publicPath: "http://localhost:8000" },
 
     devServer: {
         //contentBase: path.resolve(__dirname, './public'),

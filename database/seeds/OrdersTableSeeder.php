@@ -27,17 +27,28 @@ class OrdersTableSeeder extends Seeder
             // Making an instance of an order, using factory
             factory(App\Order::class)->make();
 
-            // Making order items
-            DB::table('orders_items')->insert([
-                'order_id' => $order->id,
 
+            // Run this random times, maybe 1-10
+                // Make order items
+              $id = DB::table('orders_items')->insertGetId([
+                    'order_id' => $order->id,
 
-                'product_id' => "2",
-                'quantity' => "2",
-            ]);
+                    // Choose a random product from products
+                    'product_id' => "2",
+                    
+                ]);
+                echo $id;
 
-            // Making print sheets
+            // Run through all order items
+            // Create print sheet items from order items
+        /*        DB::table('print_sheet_item')->insert([
+                    'order_item_id' => $order->id,
 
+                    // Choose a random product from products
+                    'product_id' => "2",
+                    
+                ]);
+*/
 
             // Making print sheet items
         });

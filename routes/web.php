@@ -27,4 +27,6 @@ Route::get('inkbox', function () {
 
 // SPA OVERRIDE
 // CAPTURE ALL ROUTES
-Route::get('/{any}', 'SinglePageController@index')->where('any', '.*');
+Route::get('/{any}', 'SinglePageController@index')->where('any', '^((?!api).)*');
+
+//Route::get('{all}', function () {return view('index');})->where('all', '^((?!api).)*');
