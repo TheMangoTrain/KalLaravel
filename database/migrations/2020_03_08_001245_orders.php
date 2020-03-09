@@ -24,9 +24,6 @@ class Orders extends Migration
             $table->integer('customer_order_count')->nullable(true)->default(NULL);        
             $table->timestamp('created_at')->useCurrent()->nullable(true)->index();
             $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))->index();
-            // TODO: This could replace above timestamp lines; it outputs "created_at" and "updated_at" with defaults.
-            //$table->timestamps();
-
         });
     }
 

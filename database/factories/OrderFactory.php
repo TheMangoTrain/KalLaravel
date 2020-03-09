@@ -13,7 +13,8 @@ $factory->define(Order::class, function (Faker $faker) {
             'customer_id' => random_int(1000, 100000),
 
 
-          // add orders_items
+ 
+
 
           
             // get total price for items

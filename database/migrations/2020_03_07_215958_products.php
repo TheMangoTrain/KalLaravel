@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class Products extends Migration
 {
@@ -20,15 +20,15 @@ class Products extends Migration
             $table->string('type', 25)->nullable(true)->index();
             $table->string('size', 20)->nullable(true)->index();
             $table->float('price')->default(0);
-            $table->string('handle', 75)->nullable(true)->default(NULL);
+            $table->string('handle', 75)->nullable(true)->default(null);
             $table->integer('inventory_quantity')->default(0);
-            $table->string('sku', 30)->nullable(true)->default(NULL)->index();
-            $table->string('design_url', 255)->nullable(true)->default(NULL);
+            $table->string('sku', 30)->nullable(true)->default(null)->index();
+            $table->string('design_url', 255)->nullable(true)->default(null);
             $table->enum('published_state', ['inactive', 'active'])->default('active')->index();
             $table->timestamp('created_at')->useCurrent()->nullable(true)->index();
             $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))->index();
-            
-            // TODO: This could replace above timestamp lines; it outputs "created_at" and "updated_at" with defaults.
+
+            // TODO: Possible to use a one liner to define both CREATED and UPDATED timestamps
             //$table->timestamps();
 
         });
