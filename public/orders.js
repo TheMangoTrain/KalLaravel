@@ -9,15 +9,65 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _js_http__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/js/http */ "./resources/js/http.js");
+/* harmony import */ var _js_components_Table_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/js/components/Table.vue */ "./resources/js/components/Table.vue");
 //
 //
 //
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Orders',
-  components: {}
+  name: "Orders",
+  components: {
+    Table: _js_components_Table_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  data: function data() {
+    return {
+      resultsItems: null,
+      contentType: "Order",
+      contentKey: "order_id",
+      columns: ["order_id", "order_number", "customer_id", "total_price", "fulfillment_status", "order_status"],
+      filterApplied: []
+    };
+  },
+  mounted: function mounted() {
+    this.getData();
+  },
+  computed: {
+    resultsFiltered: function resultsFiltered() {
+      if (this.resultsItems != null) {
+        // Filtering logic
+        // return ...
+        return this.resultsItems.data;
+      } else {
+        return null;
+      }
+    }
+  },
+  methods: {
+    getData: function getData() {
+      var _this = this;
+
+      _js_http__WEBPACK_IMPORTED_MODULE_0__["default"].get("api/orders").then(function (response) {
+        _this.processData(response.data);
+      });
+    },
+    processData: function processData(data) {
+      // ...
+      this.resultsItems = data;
+      this.filterResults;
+    }
+  }
 });
 
 /***/ }),
@@ -37,9 +87,23 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "view_Orders view" }, [
-    _vm._v("\n      Orders list here\n")
-  ])
+  return _c(
+    "div",
+    { staticClass: "view_Orders view" },
+    [
+      _c("h1", [_vm._v("ORDERS")]),
+      _vm._v(" "),
+      _c("Table", {
+        attrs: {
+          items: this.resultsFiltered,
+          columns: _vm.columns,
+          contentType: _vm.contentType,
+          contentKey: _vm.contentKey
+        }
+      })
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

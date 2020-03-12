@@ -16,17 +16,10 @@ Route::get('/', function () {
     return view('welcome');
     //return view('index');
 });
+*/
 
-Route::get('foo', function () {
-    return view('foo');
-});
-
-Route::get('inkbox', function () {
-    return view('inkbox');
-});*/
-
-// SPA OVERRIDE
-// CAPTURE ALL ROUTES
+// CAPTURE ALL ROUTES (for Vue SPA)
 Route::get('/{any}', 'SinglePageController@index')->where('any', '^((?!api).)*');
+
 
 //Route::get('{all}', function () {return view('index');})->where('all', '^((?!api).)*');

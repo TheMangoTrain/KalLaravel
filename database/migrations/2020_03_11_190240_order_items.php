@@ -1,10 +1,10 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
-class OrdersItems extends Migration
+class OrderItems extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class OrdersItems extends Migration
      */
     public function up()
     {
-        Schema::create('orders_items', function (Blueprint $table) {
-            $table->bigIncrements('order_item_id', 11);
+        Schema::create('order_items', function (Blueprint $table) {
+            $table->bigIncrements('order_item_id');
             $table->bigInteger('order_id')->unsigned();
-            $table->foreign('order_id')->references('order_id')->on('orders');
+            $table->foreign('order_id')->references('order_id')->on('orders')->onDelete('cascade');
             $table->bigInteger('product_id')->unsigned()->index();
-            $table->foreign('product_id')->references('product_id')->on('products');
+            $table->foreign('product_id')->references('product_id')->on('products')->onDelete('cascade');
             $table->integer('quantity')->default('1');
             $table->bigInteger('refund')->default('0')->index();
             $table->integer('resend_amount')->default('0');

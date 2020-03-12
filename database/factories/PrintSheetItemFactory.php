@@ -2,11 +2,16 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Model;
+use App\PrintSheetItem;
 use Faker\Generator as Faker;
 
-$factory->define(Model::class, function (Faker $faker) {
+$factory->define(PrintSheetItem::class, function (Faker $faker) {
     return [
-        //
+  
+        'image_url' => 'http://website.com',
+        'x_pos' => 0,
+        'y_pos' => 0,
+        'identifier' => 'My cool design'
+
     ];
 });

@@ -2,11 +2,14 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Model;
+use App\PrintSheet;
 use Faker\Generator as Faker;
 
-$factory->define(Model::class, function (Faker $faker) {
+$factory->define(PrintSheet::class, function (Faker $faker) {
     return [
-        //
+
+        'type' => 'test',
+        'sheet_url' => 'http://website.com'
+            
     ];
 });

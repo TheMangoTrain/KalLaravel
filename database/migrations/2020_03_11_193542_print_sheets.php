@@ -1,10 +1,10 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
-class PrintSheet extends Migration
+class PrintSheets extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class PrintSheet extends Migration
      */
     public function up()
     {
-        Schema::create('print_sheet', function (Blueprint $table) {
-            $table->integer('ps_id')->unsigned()->primary();
+        Schema::create('print_sheets', function (Blueprint $table) {
+            $table->increments('ps_id');
             $table->enum('type', ['ecom', 'test'])->default('ecom')->collation('utf8_unicode_ci');
             $table->string('sheet_url', 255)->collation('utf8_unicode_ci');
             $table->timestamp('created_at')->useCurrent()->index();

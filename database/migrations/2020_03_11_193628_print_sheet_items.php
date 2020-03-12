@@ -1,10 +1,10 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
-class PrintSheetItem extends Migration
+class PrintSheetItems extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class PrintSheetItem extends Migration
      */
     public function up()
     {
-        Schema::create('print_sheet_item', function (Blueprint $table) {
-            $table->integer('psi_id')->unsigned()->primary();
+        Schema::create('print_sheet_items', function (Blueprint $table) {
+            $table->bigIncrements('psi_id');
             $table->integer('ps_id')->unsigned()->index();
-            $table->foreign('ps_id')->references('ps_id')->on('print_sheet');
+            $table->foreign('ps_id')->references('ps_id')->on('print_sheets')->onDelete('cascade');
             $table->bigInteger('order_item_id')->unsigned();
-            $table->foreign('order_item_id')->references('order_item_id')->on('orders_items');
+            $table->foreign('order_item_id')->references('order_item_id')->on('order_items')->onDelete('cascade');
             $table->enum('status', ['pass', 'reject', 'complete'])->default('pass')->collation('utf8_unicode_ci')->index();
             $table->string('image_url', 255)->collation('utf8_unicode_ci');
             $table->string('size', 20);

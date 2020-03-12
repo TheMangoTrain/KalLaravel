@@ -1,15 +1,12 @@
 <template>
-  <div class="view_Home view">
-        Home page
-  </div>
+    <div class="view_Home view">
+        <h1>HOME</h1>
+    </div>
 </template>
 
 <script>
-
 export default {
-  name: 'Home',
-  components: {
-
-  }
-}
+    name: "Home",
+    components: {}
+};
 </script>

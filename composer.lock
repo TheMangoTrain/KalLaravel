@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dc32bd2cb72bd4aa4014a6c3dd7d130f",
+    "content-hash": "3714646b044f36df3762a2c452f29cc8",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1071,6 +1071,49 @@
                 "serialize"
             ],
             "time": "2019-11-29T22:36:02+00:00"
+        },
+        {
+            "name": "padam87/bin-packer",
+            "version": "v0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Padam87/bin-packer.git",
+                "reference": "e89cbb29a73c98d77ac1ec6b4d040d25a7792b9f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Padam87/bin-packer/zipball/e89cbb29a73c98d77ac1ec6b4d040d25a7792b9f",
+                "reference": "e89cbb29a73c98d77ac1ec6b4d040d25a7792b9f",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "ext-imagick": "*",
+                "phpunit/phpunit": "^8.1"
+            },
+            "suggest": {
+                "ext-imagick": "To use the visualizer and GIF maker"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Padam87\\BinPacker\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Adam Prager",
+                    "email": "prager.adam87@gmail.com"
+                }
+            ],
+            "description": "2D bin packing for PHP",
+            "time": "2019-05-23T22:53:53+00:00"
         },
         {
             "name": "paragonie/random_compat",

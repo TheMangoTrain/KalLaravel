@@ -1,118 +1,71 @@
 <template>
-  <div class="view_Products view">
-        Products list here
+    <div class="view_Products view">
+        <h1>PRODUCTS</h1>
 
-          <Table
-            :items="resultsFiltered"
+        <Table
+            :items="this.resultsFiltered"
             :columns="columns"
-          />
-  </div>
+            :contentType="contentType"
+            :contentKey="contentKey"
+        />
+    </div>
 </template>
 
 <script>
-import HTTP from "http";
+import HTTP from "@/js/http";
 import Table from "@/js/components/Table.vue";
 
 export default {
-  name: "Products",
-  components: {
-    Table
-  },
+    name: "Products",
+    components: {
+        Table
+    },
 
-  data: function() {
-    return {
-      resultsItems: null,
-      columns: ["sku", "title", "size", "price", "inventory"],
-      filterApplied: []
-    };
-  },
+    data: function() {
+        return {
+            resultsItems: null,
+            contentType: "Product",
+            contentKey: "product_id",
+            columns: [
+                "product_id",
+                "title",
+                "size",
+                "price",
+                "inventory_quantity"
+            ],
+            filterApplied: []
+        };
+    },
 
-  mounted() {
-    //this.getData();
-  },
+    mounted() {
+        this.getData();
+    },
 
-  watch: {
-
-  },
-
-  computed: {
-
-  resultsFiltered: function() {
-
-      console.log("filtering results")
-      if (this.resultsItems != null) {
-    
-
-         // return this.resultsItems
-    
-        return this.resultsItems.filter(item => {
-
-         
-        });
-        
-        /*
-        return items.filter(item => {
-          if (this.startDate != null && this.endDate != null) {
-            return true;
-          } else {
-            return item.date >= this.startDate && item.date <= this.endDate;
-          }
-        }); */
-      } else {
-        return []
-      }
-
-      /*
-
-         return items.filter(item => {
-            if (this.filterApplied.length < 1) {
-
-              // No filter enabled
-              return item
+    computed: {
+        resultsFiltered: function() {
+            if (this.resultsItems != null) {
+                //Filtering logic to go here
+                return this.resultsItems.data;
             } else {
-
-              // Filter(s) enabled
-              var output
-              Object.keys(this.filtersAsNumbers)
-                .filter(dateRange=>
-                  this.filterApplied.includes(dateRange)
-                )
-                .filter(dateRangeFiltered=>{
-                  let low = this.filtersAsNumbers[dateRangeFiltered][0]
-                  let high = this.filtersAsNumbers[dateRangeFiltered][1]
-                  if (item.Date >= low && item.Date <= high) {
-                    output = item
-                  }
-                })
-              return output
+                return null;
             }
-          })
-          */
+        }
+    },
+
+    methods: {
+        getData: function() {
+            HTTP.get("api/products").then(response => {
+                this.processData(response.data);
+            });
+        },
+
+        processData: function(data) {
+            // ...
+
+            this.resultsItems = data;
+
+           // this.filterResults;
+        }
     }
-
-  },
-
-  methods: {
-    getData: function() {
-      HTTP.get("api/products").then(response => {
-        this.processData(response.data);
-      });
-    },
-
-    processData: function(data) {
-      // Processing area after download success
-      // ...
-
-      console.log("processing data")
-
-      // Lastly, apply data to component
-      this.resultsItems = data;
-
-console.log("attempting filtering results")
-      this.filterResults;
-    },
-
-  
-  }
 };
 </script>
