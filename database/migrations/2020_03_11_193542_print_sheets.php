@@ -18,7 +18,9 @@ class PrintSheets extends Migration
             $table->enum('type', ['ecom', 'test'])->default('ecom')->collation('utf8_unicode_ci');
             $table->string('sheet_url', 255)->collation('utf8_unicode_ci');
             $table->timestamp('created_at')->useCurrent()->index();
-            $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))->index();
+
+            //This is failing on Heroku's mysql add-on (ClearDB)
+            //$table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))->index();
         });
     }
 

@@ -23,7 +23,9 @@ class OrderItems extends Migration
             $table->bigInteger('refund')->default('0')->index();
             $table->integer('resend_amount')->default('0');
             $table->timestamp('created_at')->useCurrent()->nullable(true)->index();
-            $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))->index();
+
+            //This is failing on Heroku's mysql add-on (ClearDB)
+            //$table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))->index();
         });
     }
 

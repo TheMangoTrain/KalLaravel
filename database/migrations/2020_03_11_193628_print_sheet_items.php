@@ -28,7 +28,9 @@ class PrintSheetItems extends Migration
             $table->integer('height');
             $table->string('identifier')->collation('utf8_unicode_ci');
             $table->timestamp('created_at')->useCurrent();
-            $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
+
+            //This is failing on Heroku's mysql add-on (ClearDB)
+            //$table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
     }
 

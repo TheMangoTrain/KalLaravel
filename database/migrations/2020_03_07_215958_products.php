@@ -26,7 +26,9 @@ class Products extends Migration
             $table->string('design_url', 255)->nullable(true)->default(null);
             $table->enum('published_state', ['inactive', 'active'])->default('active')->index();
             $table->timestamp('created_at')->useCurrent()->nullable(true)->index();
-            $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))->index();
+            
+            //This is failing on Heroku's mysql add-on (ClearDB)
+            //$table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))->index();
 
             // TODO: Possible to use a one liner to define both CREATED and UPDATED timestamps
             //$table->timestamps();

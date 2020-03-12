@@ -23,7 +23,9 @@ class Orders extends Migration
             $table->enum('order_status', ['pending', 'active', 'done', 'cancelled', 'resend'])->nullable(true)->default(NULL);
             $table->integer('customer_order_count')->nullable(true)->default(NULL);        
             $table->timestamp('created_at')->useCurrent()->nullable(true)->index();
-            $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))->index();
+
+            //This is failing on Heroku's mysql add-on (ClearDB)
+            //$table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))->index();
         });
     }
 
