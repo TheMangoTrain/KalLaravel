@@ -66,7 +66,7 @@ const routes = [
         props: true
     },
     {
-        path: "printsheet/delete/:id/",
+        path: "/printsheet/delete/:id/",
         name: "PrintSheetDelete",
         props: true
     },
@@ -89,7 +89,7 @@ const routes = [
         props: true
     },
     {
-        path: "printsheetitem/delete/:id/",
+        path: "/printsheetitem/delete/:id/",
         name: "PrintSheetItemDelete",
         props: true
     }
