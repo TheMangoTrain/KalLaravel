@@ -18,8 +18,6 @@ Route::get('/', function () {
 });
 */
 
+
 // CAPTURE ALL ROUTES (for Vue SPA)
 Route::get('/{any}', 'SinglePageController@index')->where('any', '^((?!api).)*');
-
-
-//Route::get('{all}', function () {return view('index');})->where('all', '^((?!api).)*');
