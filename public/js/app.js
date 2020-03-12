@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"order":"order","orders~printsheetitems~printsheets~products":"orders~printsheetitems~printsheets~products","orders":"orders","printsheetitems":"printsheetitems","printsheets":"printsheets","products":"products","printsheet":"printsheet","printsheetitem":"printsheetitem","product":"product"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "" + ({"order":"order","orders~printsheetitems2~printsheets~products":"orders~printsheetitems2~printsheets~products","orders":"orders","printsheetitems2":"printsheetitems2","printsheets":"printsheets","products":"products","printsheet":"printsheet","printsheetitem2":"printsheetitem2","product":"product"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -19180,7 +19180,7 @@ var routes = [{
   path: "/products",
   name: "Products",
   component: function component() {
-    return Promise.all(/*! import() | products */[__webpack_require__.e("orders~printsheetitems~printsheets~products"), __webpack_require__.e("products")]).then(__webpack_require__.bind(null, /*! @/js/views/Products.vue */ "./resources/js/views/Products.vue"));
+    return Promise.all(/*! import() | products */[__webpack_require__.e("orders~printsheetitems2~printsheets~products"), __webpack_require__.e("products")]).then(__webpack_require__.bind(null, /*! @/js/views/Products.vue */ "./resources/js/views/Products.vue"));
   }
 }, {
   path: "/product/:id/",
@@ -19197,7 +19197,7 @@ var routes = [{
   path: "/orders",
   name: "Orders",
   component: function component() {
-    return Promise.all(/*! import() | orders */[__webpack_require__.e("orders~printsheetitems~printsheets~products"), __webpack_require__.e("orders")]).then(__webpack_require__.bind(null, /*! @/js/views/Orders.vue */ "./resources/js/views/Orders.vue"));
+    return Promise.all(/*! import() | orders */[__webpack_require__.e("orders~printsheetitems2~printsheets~products"), __webpack_require__.e("orders")]).then(__webpack_require__.bind(null, /*! @/js/views/Orders.vue */ "./resources/js/views/Orders.vue"));
   }
 }, {
   path: "/order/:id/",
@@ -19214,7 +19214,7 @@ var routes = [{
   path: "/printsheets",
   name: "PrintSheets",
   component: function component() {
-    return Promise.all(/*! import() | printsheets */[__webpack_require__.e("orders~printsheetitems~printsheets~products"), __webpack_require__.e("printsheets")]).then(__webpack_require__.bind(null, /*! @/js/views/PrintSheets.vue */ "./resources/js/views/PrintSheets.vue"));
+    return Promise.all(/*! import() | printsheets */[__webpack_require__.e("orders~printsheetitems2~printsheets~products"), __webpack_require__.e("printsheets")]).then(__webpack_require__.bind(null, /*! @/js/views/PrintSheets.vue */ "./resources/js/views/PrintSheets.vue"));
   }
 }, {
   path: "/printsheet/:id/",
@@ -19224,24 +19224,24 @@ var routes = [{
   },
   props: true
 }, {
-  path: "/printsheet/delete/:id/",
+  path: "printsheet/delete/:id/",
   name: "PrintSheetDelete",
   props: true
 }, {
   path: "/printsheetitems",
   name: "PrintSheetItems",
   component: function component() {
-    return Promise.all(/*! import() | printsheetitems */[__webpack_require__.e("orders~printsheetitems~printsheets~products"), __webpack_require__.e("printsheetitems")]).then(__webpack_require__.bind(null, /*! @/js/views/PrintSheetItems.vue */ "./resources/js/views/PrintSheetItems.vue"));
+    return Promise.all(/*! import() | printsheetitems2 */[__webpack_require__.e("orders~printsheetitems2~printsheets~products"), __webpack_require__.e("printsheetitems2")]).then(__webpack_require__.bind(null, /*! @/js/views/PrintSheetItems.vue */ "./resources/js/views/PrintSheetItems.vue"));
   }
 }, {
   path: "/printsheetitem/:id/",
-  name: "PrintSheet",
+  name: "PrintSheetItem",
   component: function component() {
-    return __webpack_require__.e(/*! import() | printsheetitem */ "printsheetitem").then(__webpack_require__.bind(null, /*! @/js/views/PrintSheetItem.vue */ "./resources/js/views/PrintSheetItem.vue"));
+    return __webpack_require__.e(/*! import() | printsheetitem2 */ "printsheetitem2").then(__webpack_require__.bind(null, /*! @/js/views/PrintSheetItem.vue */ "./resources/js/views/PrintSheetItem.vue"));
   },
   props: true
 }, {
-  path: "/printsheetitem/delete/:id/",
+  path: "printsheetitem/delete/:id/",
   name: "PrintSheetItemDelete",
   props: true
 }];

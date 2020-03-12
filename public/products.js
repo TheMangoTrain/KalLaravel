@@ -46,6 +46,7 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     resultsFiltered: function resultsFiltered() {
       if (this.resultsItems != null) {
+        //Filtering logic to go here
         return this.resultsItems.data;
       } else {
         return null;
@@ -62,8 +63,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     processData: function processData(data) {
       // ...
-      this.resultsItems = data;
-      this.filterResults;
+      this.resultsItems = data; // this.filterResults;
     }
   }
 });
