@@ -76,7 +76,7 @@ const routes = [
         name: "PrintSheetItems",
         component: () =>
             import(
-                /* webpackChunkName: "printsheetitems" */ "@/js/views/PrintSheetItems.vue"
+                /* webpackChunkName: "printsheetitems2" */ "@/js/views/PrintSheetItems.vue"
             )
     },
     {
@@ -84,7 +84,7 @@ const routes = [
         name: "PrintSheetItem",
         component: () =>
             import(
-                /* webpackChunkName: "printsheetitem" */ "@/js/views/PrintSheetItem.vue"
+                /* webpackChunkName: "printsheetitem2" */ "@/js/views/PrintSheetItem.vue"
             ),
         props: true
     },
