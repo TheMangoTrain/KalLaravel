@@ -7,7 +7,7 @@
                     <div class="arrow" v-bind:class="currentSortDir"></div>
                 </th>
                 <th>
-                    Actions
+                    actions
                 </th>
             </tr>
         </thead>
