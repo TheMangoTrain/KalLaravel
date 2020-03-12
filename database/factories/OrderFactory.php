@@ -7,23 +7,9 @@ use Faker\Generator as Faker;
 
 $factory->define(Order::class, function (Faker $faker) {
 
-  
-        return [
-            'order_number' => random_int(1000, 100000),
-            'customer_id' => random_int(1000, 100000),
-
-
- 
-
-
-          
-            // get total price for items
-            //$table->float('total_price')->default(0);
-   
-    
-        ];
-
-
-
+    return [
+        'order_number' => random_int(1000, 100000),
+        'customer_id' => random_int(1000, 100000),
+    ];
 
 });

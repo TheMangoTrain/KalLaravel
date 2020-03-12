@@ -7,6 +7,6 @@ use Faker\Generator as Faker;
 
 $factory->define(OrderItem::class, function (Faker $faker) {
     return [
-        'product_id' => App\Product::all()->random()->product_id,        
+        'product_id' => App\Product::all()->random()->product_id,
     ];
 });

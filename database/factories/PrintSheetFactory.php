@@ -9,7 +9,7 @@ $factory->define(PrintSheet::class, function (Faker $faker) {
     return [
 
         'type' => 'test',
-        'sheet_url' => 'http://website.com'
-            
+        'sheet_url' => 'http://website.com',
+
     ];
 });
